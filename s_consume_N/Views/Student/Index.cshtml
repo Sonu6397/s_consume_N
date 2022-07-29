@@ -1,0 +1,59 @@
+﻿@model IEnumerable<s_consume_N.Models.Empmodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>Edit</th>
+        <th>Details</th>
+        <th>Delete</th>
+
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Salary)
+    </td>
+    <td><a class=" btn btn-success" href="@Url.Action("Edit","Student", new { id=item.Id})">Edit</a></td>
+    <td><a class=" btn btn-warning" href="@Url.Action("Details","Student", new { id=item.Id})">Details</a></td>
+    <td><a class=" btn btn-danger" href="@Url.Action("Delete","Student", new { id=item.Id})">Delete</a></td>
+
+</tr>
+}
+
+</table>
